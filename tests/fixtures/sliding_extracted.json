@@ -1,0 +1,165 @@
+{
+  "reference_lcp": false,
+  "step": "LOAD",
+  "frame_value": 1,
+  "points": [
+    {
+      "point": "P1",
+      "instance": "TOP",
+      "node_label": 593,
+      "x_mm": 320,
+      "y_mm": 52,
+      "z_mm": 0,
+      "component": "E33",
+      "strain": 0.00012337809312157333,
+      "element_nodal_contributions": 4
+    },
+    {
+      "point": "P2",
+      "instance": "TOP",
+      "node_label": 593,
+      "x_mm": 320,
+      "y_mm": 52,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": -0.00039813522016629577,
+      "element_nodal_contributions": 4
+    },
+    {
+      "point": "P3",
+      "instance": "TOP",
+      "node_label": 407,
+      "x_mm": 320,
+      "y_mm": 46,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": -0.00021430631750263274,
+      "element_nodal_contributions": 8
+    },
+    {
+      "point": "P4",
+      "instance": "TOP",
+      "node_label": 500,
+      "x_mm": 320,
+      "y_mm": 39,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": 8.834967957227491e-8,
+      "element_nodal_contributions": 8
+    },
+    {
+      "point": "P5",
+      "instance": "TOP",
+      "node_label": 686,
+      "x_mm": 320,
+      "y_mm": 32,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": 0.00021420347184175625,
+      "element_nodal_contributions": 8
+    },
+    {
+      "point": "P6",
+      "instance": "BOTTOM",
+      "node_label": 407,
+      "x_mm": 320,
+      "y_mm": 20,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": -0.00021512002058443613,
+      "element_nodal_contributions": 8
+    },
+    {
+      "point": "P7",
+      "instance": "BOTTOM",
+      "node_label": 500,
+      "x_mm": 320,
+      "y_mm": 13,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": -3.169589035678655e-10,
+      "element_nodal_contributions": 8
+    },
+    {
+      "point": "P8",
+      "instance": "BOTTOM",
+      "node_label": 686,
+      "x_mm": 320,
+      "y_mm": 6,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": 0.00021512037346838042,
+      "element_nodal_contributions": 8
+    },
+    {
+      "point": "P9",
+      "instance": "BOTTOM",
+      "node_label": 779,
+      "x_mm": 320,
+      "y_mm": 0,
+      "z_mm": 0,
+      "component": "E11",
+      "strain": 0.0003995098522864282,
+      "element_nodal_contributions": 4
+    },
+    {
+      "point": "P10",
+      "instance": "BOTTOM",
+      "node_label": 779,
+      "x_mm": 320,
+      "y_mm": 0,
+      "z_mm": 0,
+      "component": "E33",
+      "strain": -0.0001038730661093723,
+      "element_nodal_contributions": 4
+    }
+  ],
+  "instances": {
+    "BOTTOM": {
+      "nodes": 2945,
+      "elements": 512,
+      "min": [
+        0,
+        0,
+        -8
+      ],
+      "max": [
+        640,
+        26,
+        8
+      ],
+      "element_types": [
+        "C3D20R"
+      ]
+    },
+    "TOP": {
+      "nodes": 2945,
+      "elements": 512,
+      "min": [
+        0,
+        26,
+        -8
+      ],
+      "max": [
+        640,
+        52,
+        8
+      ],
+      "element_types": [
+        "C3D20R"
+      ]
+    }
+  },
+  "reaction": [
+    -0.0000012591517760630541,
+    2000.002571105957,
+    1.7731627101401186e-10
+  ],
+  "reaction_moment": [
+    -1.565594778926878e-10,
+    -1.1153967555133093e-7,
+    640000.8300781251
+  ],
+  "force_residual_relative": 0.0000012855531326772152,
+  "moment_residual_relative": 0.000001296997070494399
+}

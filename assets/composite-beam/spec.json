@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "model": "qwen3.7-plus",
+  "abaqus_version": "2026",
+  "length_mm": 640,
+  "width_mm": 16,
+  "layer_height_mm": 26,
+  "materials": {
+    "steel": {
+      "E_MPa": 203000,
+      "nu": 0.26
+    },
+    "aluminum": {
+      "E_MPa": 75000,
+      "nu": 0.31
+    },
+    "copper": {
+      "E_MPa": 104000,
+      "nu": 0.4
+    }
+  },
+  "cases": [
+    {
+      "case_id": "sliding_aluminum_steel",
+      "connection": "sliding",
+      "top_material": "aluminum",
+      "bottom_material": "steel",
+      "total_load_N": 2000
+    },
+    {
+      "case_id": "tied_aluminum_steel",
+      "connection": "tied",
+      "top_material": "aluminum",
+      "bottom_material": "steel",
+      "total_load_N": 2000
+    }
+  ],
+  "mesh": {
+    "type": "C3D20R",
+    "x_elements": 32,
+    "y_breaks_local_mm": [
+      0,
+      6,
+      13,
+      20,
+      26
+    ],
+    "z_elements": 4
+  },
+  "loading": {
+    "x_mm": [
+      200,
+      440
+    ],
+    "direction": "negative_Y",
+    "distribution": "quadratic consistent line forces; each line total F/2"
+  },
+  "supports": {
+    "bottom_left_edge": "U1=U2=U3=0 on x=0,y=0,all z",
+    "bottom_right_edge": "U2=U3=0 on x=640,y=0,all z; U1 free",
+    "sliding_top_gauge": [
+      {
+        "xyz": [
+          0,
+          26,
+          0
+        ],
+        "dofs": [
+          1,
+          3
+        ]
+      },
+      {
+        "xyz": [
+          640,
+          26,
+          0
+        ],
+        "dofs": [
+          3
+        ]
+      }
+    ]
+  },
+  "interface": {
+    "sliding": "small-sliding surface-to-surface hard normal contact, DIRECT enforcement, separation permitted, tangential frictionless; no Tie; no stabilization",
+    "tied": "surface-based Tie; no separation or relative slip"
+  },
+  "points": [
+    {
+      "id": "P1",
+      "y": 52,
+      "component": "E33",
+      "layer": "top",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P2",
+      "y": 52,
+      "component": "E11",
+      "layer": "top",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P3",
+      "y": 46,
+      "component": "E11",
+      "layer": "top",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P4",
+      "y": 39,
+      "component": "E11",
+      "layer": "top",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P5",
+      "y": 32,
+      "component": "E11",
+      "layer": "top",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P6",
+      "y": 20,
+      "component": "E11",
+      "layer": "bottom",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P7",
+      "y": 13,
+      "component": "E11",
+      "layer": "bottom",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P8",
+      "y": 6,
+      "component": "E11",
+      "layer": "bottom",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P9",
+      "y": 0,
+      "component": "E11",
+      "layer": "bottom",
+      "x": 320,
+      "z": 0
+    },
+    {
+      "id": "P10",
+      "y": 0,
+      "component": "E33",
+      "layer": "bottom",
+      "x": 320,
+      "z": 0
+    }
+  ],
+  "extraction": "last converged frame, E; element-nodal extrapolation averaged over adjacent elements within the target instance only",
+  "acceptance": {
+    "absolute_strain_tolerance": 0.000002,
+    "relative_strain_tolerance": 0.05,
+    "force_balance_relative": 0.01,
+    "moment_balance_relative": 0.01
+  },
+  "allowed_procedures": [
+    "Static General with nlgeom OFF"
+  ],
+  "required_artifacts": [
+    "model.cae",
+    "beam.inp",
+    "beam.odb",
+    "result.csv"
+  ],
+  "profile": "composite-beam-v1"
+}

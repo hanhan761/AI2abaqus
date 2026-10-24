@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "skill_version": "0.1.0",
+  "date": "2026-10-24",
+  "execution_location": "3090_windows_vm",
+  "software": "Abaqus 2026 Python 3.10",
+  "model_profile": "qwen3.7-plus",
+  "status": "unit_and_ODB_component_checks_passed_full_replay_environment_blocked",
+  "unit_tests": {
+    "location": "3090_windows_vm",
+    "syntax": true,
+    "tests": 31,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "yaml_available": false,
+    "test_names": [
+      "test_actual_tied_deck_passes",
+      "test_balance_residual_is_independent_acceptance_condition",
+      "test_changed_material_rejected",
+      "test_relabelled_csv_values_rejected",
+      "test_successful_tied_solve_does_not_satisfy_sliding_task",
+      "test_unexpanded_include_rejected",
+      "test_accepted_feedback_keeps_teacher_pending",
+      "test_ai_cannot_finalize_teacher_score",
+      "test_bad_patch_syntax_leaves_source_unchanged",
+      "test_contract_is_immutable",
+      "test_developer_correction_is_not_attributed_to_model",
+      "test_feedback_score_bounds_and_bool_rejected",
+      "test_init_does_not_overwrite_work",
+      "test_license_failure_is_not_a_code_failure",
+      "test_old_passed_report_cannot_grade_new_source",
+      "test_patch_keeps_before_after_and_role",
+      "test_patch_stale_source_rejected",
+      "test_prediction_cannot_be_rewritten_after_results",
+      "test_prediction_edit_invalidates_feedback",
+      "test_prediction_required_before_execution",
+      "test_process_file_change_invalidates_feedback",
+      "test_region_error_is_distinguished_from_environment",
+      "test_replay_stops_at_first_license_failure",
+      "test_resubmission_preserves_original_packet",
+      "test_source_change_invalidates_collected_feedback",
+      "test_source_edit_invalidates_review",
+      "test_stale_feedback_rejected",
+      "test_submission_path_escape_rejected",
+      "test_target_mismatch_stops_before_compute",
+      "test_undefined_feedback_reference_is_preserved_and_rejected",
+      "test_verification_report_edit_invalidates_feedback"
+    ],
+    "log_sha256": "06a3d2c9a69ec361b49f4e7f65d3fd944bd17385f98149f843d9e4f14021704d"
+  },
+  "skill_format": {
+    "passed": true,
+    "message": "Skill is valid!",
+    "official_skill_validator": true,
+    "ui_metadata_checked": true,
+    "location": "3090_windows_vm"
+  },
+  "actual_ODB_components": {
+    "location": "3090_windows_vm",
+    "kind": "new_verifier_reading_previously_solved_actual_ODB_not_new_solve",
+    "cases": [
+      {
+        "case_id": "tied_aluminum_steel",
+        "passed": true,
+        "original_inp_sha256": "b161716a27fa04397dd38c564d4d3fc73a3bd1a15175733e9f05bcf7782a01f2",
+        "original_odb_sha256": "82334d03df1ba1abff44bac4b89b4707b941a5d287412fd49afd63e820b3ac67",
+        "extraction_exit": 0,
+        "checks": {
+          "structure": {
+            "passed": true,
+            "errors": [],
+            "instances": [
+              "BOTTOM",
+              "TOP"
+            ],
+            "nodes": {
+              "TOP": 2945,
+              "BOTTOM": 2945
+            },
+            "boundary_dofs": 45,
+            "load_dofs": 18
+          },
+          "extraction": {
+            "passed": true,
+            "errors": []
+          },
+          "physics": {
+            "passed": true,
+            "errors": [],
+            "comparisons": [
+              {
+                "point": "P1",
+                "strain": 0.00009050522930920124,
+                "reference": 0.00009050511289387941,
+                "absolute_error": 1.1641532182693481e-10,
+                "tolerance": 0.000004525255644693971,
+                "passed": true
+              },
+              {
+                "point": "P2",
+                "strain": -0.0002920718106906861,
+                "reference": -0.00029207143234089017,
+                "absolute_error": 3.7834979593753815e-10,
+                "tolerance": 0.000014603571617044509,
+                "passed": true
+              },
+              {
+                "point": "P3",
+                "strain": -0.00023716008581686765,
+                "reference": -0.00023715979477856308,
+                "absolute_error": 2.9103830456733704e-10,
+                "tolerance": 0.000011857989738928155,
+                "passed": true
+              },
+              {
+                "point": "P4",
+                "strain": -0.00017316907178610563,
+                "reference": -0.00017316882440354675,
+                "absolute_error": 2.473825588822365e-10,
+                "tolerance": 0.000008658441220177338,
+                "passed": true
+              },
+              {
+                "point": "P5",
+                "strain": -0.00010944045789074153,
+                "reference": -0.00010944031600956805,
+                "absolute_error": 1.418811734765768e-10,
+                "tolerance": 0.0000054720158004784025,
+                "passed": true
+              },
+              {
+                "point": "P6",
+                "strain": 1.309760477852251e-7,
+                "reference": 1.3097729834044003e-7,
+                "absolute_error": 1.2505552149377763e-12,
+                "tolerance": 0.000002,
+                "passed": true
+              },
+              {
+                "point": "P7",
+                "strain": 0.00006401376049325336,
+                "reference": 0.00006401369137165602,
+                "absolute_error": 6.912159733474255e-11,
+                "tolerance": 0.0000032006845685828015,
+                "passed": true
+              },
+              {
+                "point": "P8",
+                "strain": 0.00012789215543307364,
+                "reference": 0.00012789200263796374,
+                "absolute_error": 1.5279510989785194e-10,
+                "tolerance": 0.000006394600131898187,
+                "passed": true
+              },
+              {
+                "point": "P9",
+                "strain": 0.00018264640675624833,
+                "reference": 0.00018264618120156229,
+                "absolute_error": 2.255546860396862e-10,
+                "tolerance": 0.000009132309060078114,
+                "passed": true
+              },
+              {
+                "point": "P10",
+                "strain": -0.00004748661376652308,
+                "reference": -0.000047486555558862165,
+                "absolute_error": 5.820766091346741e-11,
+                "tolerance": 0.0000023743277779431082,
+                "passed": true
+              }
+            ]
+          },
+          "completion_frame_passed": true
+        },
+        "force_residual_relative": 0.0000012969970895731806,
+        "moment_residual_relative": 0.00000128936767578125,
+        "frame_value": 1
+      },
+      {
+        "case_id": "sliding_aluminum_steel",
+        "passed": true,
+        "original_inp_sha256": "8fcbac7ae055ff942c34ebb023184b31a6044a99b387c010febf8092069830ae",
+        "original_odb_sha256": "ac3732416e86640ce1dab6b84b6c6dea6a910c961d8b7818fe4111b875c57a46",
+        "extraction_exit": 0,
+        "checks": {
+          "structure": {
+            "passed": true,
+            "errors": [],
+            "instances": [
+              "BOTTOM",
+              "TOP"
+            ],
+            "nodes": {
+              "TOP": 2945,
+              "BOTTOM": 2945
+            },
+            "boundary_dofs": 48,
+            "load_dofs": 18
+          },
+          "extraction": {
+            "passed": true,
+            "errors": []
+          },
+          "physics": {
+            "passed": true,
+            "errors": [],
+            "comparisons": [
+              {
+                "point": "P1",
+                "strain": 0.00012337809312157333,
+                "reference": 0.0001233779184985906,
+                "absolute_error": 1.7462298274040222e-10,
+                "tolerance": 0.00000616889592492953,
+                "passed": true
+              },
+              {
+                "point": "P2",
+                "strain": -0.00039813522016629577,
+                "reference": -0.0003981346671935171,
+                "absolute_error": 5.529727786779404e-10,
+                "tolerance": 0.000019906733359675855,
+                "passed": true
+              },
+              {
+                "point": "P3",
+                "strain": -0.00021430631750263274,
+                "reference": -0.000214306048292201,
+                "absolute_error": 2.6921043172478676e-10,
+                "tolerance": 0.000010715302414610052,
+                "passed": true
+              },
+              {
+                "point": "P4",
+                "strain": 8.834967957227491e-8,
+                "reference": 8.835286280373111e-8,
+                "absolute_error": 3.183231456205249e-12,
+                "tolerance": 0.000002,
+                "passed": true
+              },
+              {
+                "point": "P5",
+                "strain": 0.00021420347184175625,
+                "reference": 0.0002142031808034517,
+                "absolute_error": 2.9103830456733704e-10,
+                "tolerance": 0.000010710159040172585,
+                "passed": true
+              },
+              {
+                "point": "P6",
+                "strain": -0.00021512002058443613,
+                "reference": -0.00021511970408027992,
+                "absolute_error": 3.1650415621697903e-10,
+                "tolerance": 0.000010755985204013997,
+                "passed": true
+              },
+              {
+                "point": "P7",
+                "strain": -3.169589035678655e-10,
+                "reference": -3.1809577194508165e-10,
+                "absolute_error": 1.1368683772161603e-12,
+                "tolerance": 0.000002,
+                "passed": true
+              },
+              {
+                "point": "P8",
+                "strain": 0.00021512037346838042,
+                "reference": 0.0002151201006199699,
+                "absolute_error": 2.7284841053187847e-10,
+                "tolerance": 0.000010756005030998496,
+                "passed": true
+              },
+              {
+                "point": "P9",
+                "strain": 0.0003995098522864282,
+                "reference": 0.0003995093720732257,
+                "absolute_error": 4.802132025361061e-10,
+                "tolerance": 0.000019975468603661284,
+                "passed": true
+              },
+              {
+                "point": "P10",
+                "strain": -0.0001038730661093723,
+                "reference": -0.00010387293878011405,
+                "absolute_error": 1.2732925824820995e-10,
+                "tolerance": 0.000005193646939005703,
+                "passed": true
+              }
+            ]
+          },
+          "completion_frame_passed": true
+        },
+        "force_residual_relative": 0.0000012855531326772152,
+        "moment_residual_relative": 0.000001296997070494399,
+        "frame_value": 1
+      }
+    ],
+    "passed": true
+  },
+  "full_replay": {
+    "kind": "actual_licensed_replay_blocked_before_model_build",
+    "full_end_to_end_replay_passed": false,
+    "attempts": [
+      {
+        "run_id": "r0001",
+        "actual_exitcode": 1,
+        "failure": {
+          "stage": "environment",
+          "category": "license_unavailable"
+        }
+      },
+      {
+        "run_id": "r0002",
+        "actual_exitcode": 1,
+        "failure": {
+          "stage": "environment",
+          "category": "license_unavailable"
+        }
+      },
+      {
+        "run_id": "r0003",
+        "actual_exitcode": 1,
+        "failure": {
+          "stage": "environment",
+          "category": "license_unavailable"
+        }
+      }
+    ],
+    "license_endpoint_reachable_from_vm": false,
+    "license_endpoint_reachable_from_host": false,
+    "private_endpoint_and_logs_omitted": true,
+    "new_model_requests": 0
+  },
+  "tested_files_sha256": {
+    "scripts/ai2abaqus.py": "6cb73f3c01670e1d1394059a77ec85bc1d7e7129ce87cfff6b10fb0b71d17eea",
+    "scripts/evaluation.py": "568e593124e5ff3314a640035d57d404672b461861f83aef7031b540b7afc8c8",
+    "scripts/extract_odb.py": "f4727c014a2747e47669167c1930fee61e67b42987e0dcd17287d73316fc601c",
+    "scripts/inp_audit.py": "abab7788ab430921bfdd7e1e2a3fd324c2bc317484009b40e4a1c14a1cf020dc",
+    "scripts/verify.py": "8a638262a78ff41f9ab4141e7a325d0f4f51dfcb2c8ef2ce04d35d0c9f5eab22",
+    "tests/run_replay.py": "80c11f19ce4dfc4af5d0a3f1b7e3d41cccceac4aca9cfd42183cd341217862c2",
+    "tests/test_workflow.py": "bdaa76c97b2ae87a785a7c155fce200575da232fcb8b500fedd1225d83ba857e",
+    "tests/fixtures/sliding.csv": "766e7e11c4ce6f072738fe12a87522a801e27ddf5be51976f196e72f6cb3fdd6",
+    "tests/fixtures/sliding.inp": "91198c237e743e7a9ad5e516646fa074b94db6fb094d831d84e29f06fe05cb1a",
+    "tests/fixtures/sliding_extracted.json": "0cd78f2fe858fee5ec6ea318cfc9c4558a6c677491b0d3d019bcfd081163f8c8",
+    "tests/fixtures/tied.csv": "ce35b1880d365159851815c5bb1381e7f25437a046c9f00f6b38be7da7cb1a77",
+    "tests/fixtures/tied.inp": "129eff75d25e722df8467983d3d97c0f1b6227d70443d5e91efddc5b79b641bd",
+    "tests/fixtures/tied_extracted.json": "9a937193765585f456b26d77a3501fa407931b9d26597253791b01eff7e5e5e6",
+    "assets/composite-beam/build_sliding.py": "b6a39f26b086b0f1ffeade2c79be40d8d37a890edac1c0bd5efcb17bc69c93d8",
+    "assets/composite-beam/build_tied.py": "b3c19e8af5ebc0cf99b628d4e00e451bf08651fbfd266f6ca3de8029a134420f",
+    "assets/composite-beam/exercise_region.py": "b2c7675af0f0854b81c8d1551c2f33da76735c74f5761c7d2097cdc034f03d14",
+    "assets/composite-beam/spec.json": "f5ecd659809966f726c0aed8e5d47fa4742605d7f642fc4c2a771ce84f5e8768",
+    "assets/composite-beam/reference/sliding.json": "7e3c37206634ff70a83b072bd68fa4c76a8a333a4f99ddafd50519f00d97d9b1",
+    "assets/composite-beam/reference/tied.json": "688508f756f8373e74050443a363f62143afc4377ed4b2759bfce12f7927fe1e",
+    "assets/composite-beam/replays/region.json": "0b08ba4103494134f29ec6eda046b9cdf2d1115e295c04a18e14873224c82c10",
+    "assets/composite-beam/replays/sliding.json": "677425aa606ba2d60b88879307a43de52737f430c5ca3abbd8e2f89eb59bc376",
+    "agents/openai.yaml": "e4f8e2011419708556ca5673b547bc5070f93949e7e9f3c5760c2eba8a6dcd17",
+    "SKILL.md": "9c556e5d4365f65b9c86b9a3b4b07ca09baba0347a9d6efda4e0affc82b0206b"
+  },
+  "historical_cases": "prior-teaching-cases.json",
+  "real_student_participants": 0,
+  "new_model_requests": 0,
+  "limitations": [
+    "The current packaged skill has not completed a new licensed end-to-end replay because the configured license service is unreachable.",
+    "ODB component checks read previously solved real results; they are not new solver submissions.",
+    "Historical demonstrations include developer and teacher interventions. No classroom learning-gain or baseline/ablation comparison has been measured.",
+    "Frozen numerical reference and candidate fixtures are distinct artifacts under the same software and physical conditions; neither is physical measurement."
+  ]
+}

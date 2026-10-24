@@ -1,0 +1,52 @@
+{
+  "kind": "archived_qwen_response_replay_not_new_model_request",
+  "case": "sliding",
+  "mode": "interface",
+  "prediction": "With frictionless interface shear transfer absent, each layer has a neutral axis near its centroid: Y=13 and 39 mm, under maintained contact.",
+  "steps": [
+    {
+      "author_role": "model",
+      "model": "qwen3.7-plus",
+      "patch": {
+        "old": "m.Tie('LAYER_TIE',bottom,top,adjust=OFF)",
+        "new": "# 1. Define Contact Property (Hard Normal, Frictionless Tangential)\ncp_name = 'INT_HF'\nif cp_name not in m.contactProperties:\n    cp = m.ContactProperty(cp_name)\n    cp.NormalBehavior(pressureOverclosure='HARD', allowSeparation=ON, constraintEnforcementMethod=DIRECT)\n    cp.TangentialBehavior(fraction=0.0, formulation='PENALTY') # Frictionless\n\n# 2. Define Surfaces based on geometry predicates\n# Bottom surface: Lower layer top face (Y=26)\ns_bottom = a.Surface(name='S_BOT', side1Elements=a.instances['BOTTOM'].elements.selectByBoundingBox(xMin=-1e-5, xMax=640.1, yMin=25.99, yMax=26.01, zMin=-8.1, zMax=8.1))\n# Top surface: Upper layer bottom face (Y=26)\ns_top = a.Surface(name='S_TOP', side1Elements=a.instances['TOP'].elements.selectByBoundingBox(xMin=-1e-5, xMax=640.1, yMin=25.99, yMax=26.01, zMin=-8.1, zMax=8.1))\n\n# 3. Create Small Sliding Surface-to-Surface Contact\n# Note: Using generic interface structure as per Abaqus 2026 capability description\n# main=bottom (usually stiffer/larger mesh), secondary=top\ncontact_name = 'INT_LAYER_SS'\nif contact_name not in m.interactions:\n    m.SurfaceToSurfaceContactStd(\n        name=contact_name,\n        createStepName='Initial',\n        main=s_bottom,\n        secondary=s_top,\n        sliding='SMALL',\n        interactionProperty=cp_name,\n        enforcement=SURFACE_TO_SURFACE,\n        adjustMethod=NONE\n    )\n\n# 4. Apply Boundary Conditions on TOP instance nodes\n# Constraint U1/U3 at TOP(0, 26, 0)\nn_set_1 = nodeset('BC_TOP_X0', 'TOP', lambda c: near(c[0], 0) and near(c[1], 26) and near(c[2], 0), expected=1)\nm.DisplacementBC(name='BC_TOP_0', createStepName='Initial', region=n_set_1, u1=SET, u2=UNSET, u3=SET)\n\n# Constraint U3 at TOP(640, 26, 0)\nn_set_2 = nodeset('BC_TOP_X640', 'TOP', lambda c: near(c[0], 640) and near(c[1], 26) and near(c[2], 0), expected=1)\nm.DisplacementBC(name='BC_TOP_640', createStepName='Initial', region=n_set_2, u1=UNSET, u2=UNSET, u3=SET)",
+        "explanation": "代码首先创建了名为'INT_HF'的接触属性，设定法向为'HARD'且允许分离（Allow Separation=ON），采用直接约束法（DIRECT）；切向设为无摩擦。接着通过坐标范围精确选取下层上表面和上层下表面生成面集合。随后调用SurfaceToSurfaceContactStd建立小滑移（SMALL）面面接触，替代原有的Tie约束。最后，根据题目要求，在上层实例TOP的特定坐标点施加了局部边界条件：左端点约束U1和U3，右端点仅约束U3。此替换彻底移除了节点绑定，允许界面在法向受拉时分离，符合物理实际。",
+        "review_questions": [
+          "在Abaqus/CAE的Interaction模块中，确认'LAYER_TIE'已不存在，且新增了类型为'Surface-to-surface contact (Standard)'的相互作用，其Sliding formulation是否为Small sliding？",
+          "检查Contact Property管理器，确认新属性的Normal Behavior是否设置为'Hard' contact且勾选了'Allow separation'，Tangential Behavior是否为Frictionless？",
+          "提交作业后查看.dat文件或.msg文件，搜索关键字'TIE'确认无残留绑定约束，并搜索'CONTACT PAIR'确认接触对已正确初始化且无初始过盈报错？"
+        ],
+        "physical_prediction": "由于去除了Tie约束并允许法向分离，当梁承受弯曲载荷时，若界面处产生拉应力，上下层将发生分离（Delamination）。中性轴位置不再固定于组合截面形心，而是随载荷大小动态变化：在分离区域，中性轴将分别位于各单层截面的几何中心附近；在未分离区域，中性轴位置取决于接触压力分布。整体刚度显著低于完全绑定工况，挠度增大，应变沿厚度方向在界面处可能出现不连续跳跃。"
+      },
+      "original_receipt_sha256": "303be06d60d8b5c096cfacceba2146139a501c1a147d7bd3b713c043ea1b2158",
+      "expected_run": "fail",
+      "expected_failure_category": "api_attribute"
+    },
+    {
+      "author_role": "model",
+      "model": "qwen3.7-plus",
+      "patch": {
+        "old": "m.Tie('LAYER_TIE',bottom,top,adjust=OFF)",
+        "new": "cp = m.ContactProperty('INTER_PROP')\ncp.NormalBehavior(pressureOverclosure=HARD, allowSeparation=ON, constraintEnforcementMethod=DIRECT)\ncp.TangentialBehavior(formulation=FRICTIONLESS)\nm.SurfaceToSurfaceContactStd(name='CONTACT_INT', createStepName='Initial', main=bottom, secondary=top, sliding=SMALL, interactionProperty='INTER_PROP', enforcement=SURFACE_TO_SURFACE, adjustMethod=NONE)",
+        "explanation": "修正了之前因Model对象不存在contactProperties属性而导致的报错。根据教师提供的API语境，直接通过m.ContactProperty创建接触属性对象，并分别定义法向（硬接触、允许分离、直接约束）和切向（无摩擦）行为。随后使用SurfaceToSurfaceContactStd建立接触对，指定主从面为已有的bottom和top，步长为Initial，滑移公式为小滑移。此替换完全摒弃了Tie约束，转为显式接触定义。",
+        "review_questions": [
+          "检查生成的inp文件中，*CONTACT PROPERTY部分是否正确包含了*NORMAL BEHAVIOR和*TANGENTIAL BEHAVIOR定义，且参数与代码一致？",
+          "确认*SURFACE INTERACTION关键字下的引用名称是否与ContactProperty创建时的名称'INTER_PROP'完全匹配？",
+          "验证*SURFACE TO SURFACE CONTACT中的主面(main)和从面(secondary)是否对应正确的几何表面，且enforcement方法是否为SURFACE TO SURFACE？"
+        ],
+        "physical_prediction": "在小变形静力分析且保持接触的限定条件下，由于切向定义为FRICTIONLESS（无摩擦），界面间将允许自由滑移，无法传递剪切应力。法向为HARD接触且允许分离，若受载后界面出现拉应力趋势，节点可能发生分离而非强制绑定。需重点核查S22（界面正应力）在加载过程中是否始终为压应力以维持接触闭合，以及E33（宽向应变）是否因侧向无约束或滑移而表现出与绑定模型不同的泊松效应分布。"
+      },
+      "original_receipt_sha256": "7e0b190e9800daf887a0fd8e547a5f6cd556d78d99e9ce617e4627a03f74018b",
+      "expected_run": "review_only",
+      "note": "Original response followed an explicit API card; it still omits required TOP gauges."
+    },
+    {
+      "author_role": "developer",
+      "patch": {
+        "new": "cp = m.ContactProperty('INTER_PROP')\ncp.NormalBehavior(pressureOverclosure=HARD, allowSeparation=ON, constraintEnforcementMethod=DIRECT)\ncp.TangentialBehavior(formulation=FRICTIONLESS)\nm.SurfaceToSurfaceContactStd(name='CONTACT_INT', createStepName='Initial', main=bottom, secondary=top, sliding=SMALL, interactionProperty='INTER_PROP', enforcement=SURFACE_TO_SURFACE, adjustMethod=NONE)\ng0=nodeset('GAUGE_0','TOP',lambda c:near(c[0],0.) and near(c[1],26.) and near(c[2],0.),1)\nm.DisplacementBC(name='GAUGE_0',createStepName='Initial',region=g0,u1=0.,u3=0.)\ngL=nodeset('GAUGE_640','TOP',lambda c:near(c[0],640.) and near(c[1],26.) and near(c[2],0.),1)\nm.DisplacementBC(name='GAUGE_640',createStepName='Initial',region=gL,u3=0.)\n",
+        "explanation": "Developer review adds the missing TOP U1/U3 and U3 positioning constraints; the AI contact code is retained."
+      },
+      "expected_run": "pass"
+    }
+  ]
+}

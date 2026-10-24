@@ -1,0 +1,518 @@
+{
+  "schema_version": 1,
+  "scope": "historical_reviewed_developer_teaching_demonstrations_before_skill_packaging",
+  "location": "3090_windows_vm",
+  "model": "qwen3.7-plus",
+  "real_student_participants": 0,
+  "new_requests_in_packaging_run": 0,
+  "interpretation": "These two historical cases support feasibility for the declared beam profile with explicit human scaffolding and corrections. They do not establish autonomous model success, student learning gains, or current skill end-to-end replay success.",
+  "cases": [
+    {
+      "case_id": "tied_aluminum_steel",
+      "kind": "reviewed_developer_teaching_demo",
+      "passed": true,
+      "original_software_submissions": 4,
+      "historical_model_code_help_requests": 2,
+      "source_record_sha256": "06a03eac30f0b1ffad08f641c0d818f76889cff4b6319b24ebd7ff02fbce34da",
+      "solver_completed": true,
+      "independent_original_validation": {
+        "passed": true,
+        "structure": {
+          "passed": true,
+          "errors": [],
+          "instances": [
+            "BOTTOM",
+            "TOP"
+          ],
+          "nodes": {
+            "TOP": 2945,
+            "BOTTOM": 2945
+          },
+          "boundary_dofs": 45,
+          "load_dofs": 18
+        },
+        "extraction": {
+          "passed": true,
+          "errors": []
+        },
+        "physics": {
+          "passed": true,
+          "errors": [],
+          "comparisons": [
+            {
+              "point": "P1",
+              "strain": 0.00009050522930920124,
+              "reference": 0.00009050511289387941,
+              "absolute_error": 1.1641532182693481e-10,
+              "tolerance": 0.000004525255644693971,
+              "passed": true
+            },
+            {
+              "point": "P2",
+              "strain": -0.0002920718106906861,
+              "reference": -0.00029207143234089017,
+              "absolute_error": 3.7834979593753815e-10,
+              "tolerance": 0.000014603571617044509,
+              "passed": true
+            },
+            {
+              "point": "P3",
+              "strain": -0.00023716008581686765,
+              "reference": -0.00023715979477856308,
+              "absolute_error": 2.9103830456733704e-10,
+              "tolerance": 0.000011857989738928155,
+              "passed": true
+            },
+            {
+              "point": "P4",
+              "strain": -0.00017316907178610563,
+              "reference": -0.00017316882440354675,
+              "absolute_error": 2.473825588822365e-10,
+              "tolerance": 0.000008658441220177338,
+              "passed": true
+            },
+            {
+              "point": "P5",
+              "strain": -0.00010944045789074153,
+              "reference": -0.00010944031600956805,
+              "absolute_error": 1.418811734765768e-10,
+              "tolerance": 0.0000054720158004784025,
+              "passed": true
+            },
+            {
+              "point": "P6",
+              "strain": 1.309760477852251e-7,
+              "reference": 1.3097729834044003e-7,
+              "absolute_error": 1.2505552149377763e-12,
+              "tolerance": 0.000002,
+              "passed": true
+            },
+            {
+              "point": "P7",
+              "strain": 0.00006401376049325336,
+              "reference": 0.00006401369137165602,
+              "absolute_error": 6.912159733474255e-11,
+              "tolerance": 0.0000032006845685828015,
+              "passed": true
+            },
+            {
+              "point": "P8",
+              "strain": 0.00012789215543307364,
+              "reference": 0.00012789200263796374,
+              "absolute_error": 1.5279510989785194e-10,
+              "tolerance": 0.000006394600131898187,
+              "passed": true
+            },
+            {
+              "point": "P9",
+              "strain": 0.00018264640675624833,
+              "reference": 0.00018264618120156229,
+              "absolute_error": 2.255546860396862e-10,
+              "tolerance": 0.000009132309060078114,
+              "passed": true
+            },
+            {
+              "point": "P10",
+              "strain": -0.00004748661376652308,
+              "reference": -0.000047486555558862165,
+              "absolute_error": 5.820766091346741e-11,
+              "tolerance": 0.0000023743277779431082,
+              "passed": true
+            }
+          ]
+        },
+        "completion_frame": {
+          "passed": true,
+          "lcp_detected_from_input": false,
+          "frame_value": 1
+        }
+      },
+      "cae_reopened": true,
+      "cae_physical_audit": {
+        "passed": true,
+        "errors": [],
+        "instances": [
+          "BOTTOM",
+          "TOP"
+        ],
+        "nodes": {
+          "TOP": 2945,
+          "BOTTOM": 2945
+        },
+        "boundary_dofs": 45,
+        "load_dofs": 18
+      },
+      "clean_replay_completed": true,
+      "clean_replay_validation": {
+        "passed": true,
+        "structure": {
+          "passed": true,
+          "errors": [],
+          "instances": [
+            "BOTTOM",
+            "TOP"
+          ],
+          "nodes": {
+            "TOP": 2945,
+            "BOTTOM": 2945
+          },
+          "boundary_dofs": 45,
+          "load_dofs": 18
+        },
+        "extraction": {
+          "passed": true,
+          "errors": []
+        },
+        "physics": {
+          "passed": true,
+          "errors": [],
+          "comparisons": [
+            {
+              "point": "P1",
+              "strain": 0.00009050522930920124,
+              "reference": 0.00009050511289387941,
+              "absolute_error": 1.1641532182693481e-10,
+              "tolerance": 0.000004525255644693971,
+              "passed": true
+            },
+            {
+              "point": "P2",
+              "strain": -0.0002920718106906861,
+              "reference": -0.00029207143234089017,
+              "absolute_error": 3.7834979593753815e-10,
+              "tolerance": 0.000014603571617044509,
+              "passed": true
+            },
+            {
+              "point": "P3",
+              "strain": -0.00023716008581686765,
+              "reference": -0.00023715979477856308,
+              "absolute_error": 2.9103830456733704e-10,
+              "tolerance": 0.000011857989738928155,
+              "passed": true
+            },
+            {
+              "point": "P4",
+              "strain": -0.00017316907178610563,
+              "reference": -0.00017316882440354675,
+              "absolute_error": 2.473825588822365e-10,
+              "tolerance": 0.000008658441220177338,
+              "passed": true
+            },
+            {
+              "point": "P5",
+              "strain": -0.00010944045789074153,
+              "reference": -0.00010944031600956805,
+              "absolute_error": 1.418811734765768e-10,
+              "tolerance": 0.0000054720158004784025,
+              "passed": true
+            },
+            {
+              "point": "P6",
+              "strain": 1.309760477852251e-7,
+              "reference": 1.3097729834044003e-7,
+              "absolute_error": 1.2505552149377763e-12,
+              "tolerance": 0.000002,
+              "passed": true
+            },
+            {
+              "point": "P7",
+              "strain": 0.00006401376049325336,
+              "reference": 0.00006401369137165602,
+              "absolute_error": 6.912159733474255e-11,
+              "tolerance": 0.0000032006845685828015,
+              "passed": true
+            },
+            {
+              "point": "P8",
+              "strain": 0.00012789215543307364,
+              "reference": 0.00012789200263796374,
+              "absolute_error": 1.5279510989785194e-10,
+              "tolerance": 0.000006394600131898187,
+              "passed": true
+            },
+            {
+              "point": "P9",
+              "strain": 0.00018264640675624833,
+              "reference": 0.00018264618120156229,
+              "absolute_error": 2.255546860396862e-10,
+              "tolerance": 0.000009132309060078114,
+              "passed": true
+            },
+            {
+              "point": "P10",
+              "strain": -0.00004748661376652308,
+              "reference": -0.000047486555558862165,
+              "absolute_error": 5.820766091346741e-11,
+              "tolerance": 0.0000023743277779431082,
+              "passed": true
+            }
+          ]
+        },
+        "completion_frame": {
+          "passed": true,
+          "lcp_detected_from_input": false,
+          "frame_value": 1
+        }
+      },
+      "human_contributions": [
+        "Teacher explicitly seeded a Region exercise.",
+        "Model suggestions omitted a required Set name; developer supplied the name."
+      ]
+    },
+    {
+      "case_id": "sliding_aluminum_steel",
+      "kind": "reviewed_developer_teaching_demo",
+      "passed": true,
+      "original_software_submissions": 2,
+      "historical_model_code_help_requests": 3,
+      "source_record_sha256": "14b9e8435bb73aa4c784e8c947195d82902b4a54f085e9d2ce4a3b526032ddc3",
+      "solver_completed": true,
+      "independent_original_validation": {
+        "passed": true,
+        "structure": {
+          "passed": true,
+          "errors": [],
+          "instances": [
+            "BOTTOM",
+            "TOP"
+          ],
+          "nodes": {
+            "TOP": 2945,
+            "BOTTOM": 2945
+          },
+          "boundary_dofs": 48,
+          "load_dofs": 18
+        },
+        "extraction": {
+          "passed": true,
+          "errors": []
+        },
+        "physics": {
+          "passed": true,
+          "errors": [],
+          "comparisons": [
+            {
+              "point": "P1",
+              "strain": 0.00012337809312157333,
+              "reference": 0.0001233779184985906,
+              "absolute_error": 1.7462298274040222e-10,
+              "tolerance": 0.00000616889592492953,
+              "passed": true
+            },
+            {
+              "point": "P2",
+              "strain": -0.00039813522016629577,
+              "reference": -0.0003981346671935171,
+              "absolute_error": 5.529727786779404e-10,
+              "tolerance": 0.000019906733359675855,
+              "passed": true
+            },
+            {
+              "point": "P3",
+              "strain": -0.00021430631750263274,
+              "reference": -0.000214306048292201,
+              "absolute_error": 2.6921043172478676e-10,
+              "tolerance": 0.000010715302414610052,
+              "passed": true
+            },
+            {
+              "point": "P4",
+              "strain": 8.834967957227491e-8,
+              "reference": 8.835286280373111e-8,
+              "absolute_error": 3.183231456205249e-12,
+              "tolerance": 0.000002,
+              "passed": true
+            },
+            {
+              "point": "P5",
+              "strain": 0.00021420347184175625,
+              "reference": 0.0002142031808034517,
+              "absolute_error": 2.9103830456733704e-10,
+              "tolerance": 0.000010710159040172585,
+              "passed": true
+            },
+            {
+              "point": "P6",
+              "strain": -0.00021512002058443613,
+              "reference": -0.00021511970408027992,
+              "absolute_error": 3.1650415621697903e-10,
+              "tolerance": 0.000010755985204013997,
+              "passed": true
+            },
+            {
+              "point": "P7",
+              "strain": -3.169589035678655e-10,
+              "reference": -3.1809577194508165e-10,
+              "absolute_error": 1.1368683772161603e-12,
+              "tolerance": 0.000002,
+              "passed": true
+            },
+            {
+              "point": "P8",
+              "strain": 0.00021512037346838042,
+              "reference": 0.0002151201006199699,
+              "absolute_error": 2.7284841053187847e-10,
+              "tolerance": 0.000010756005030998496,
+              "passed": true
+            },
+            {
+              "point": "P9",
+              "strain": 0.0003995098522864282,
+              "reference": 0.0003995093720732257,
+              "absolute_error": 4.802132025361061e-10,
+              "tolerance": 0.000019975468603661284,
+              "passed": true
+            },
+            {
+              "point": "P10",
+              "strain": -0.0001038730661093723,
+              "reference": -0.00010387293878011405,
+              "absolute_error": 1.2732925824820995e-10,
+              "tolerance": 0.000005193646939005703,
+              "passed": true
+            }
+          ]
+        },
+        "completion_frame": {
+          "passed": true,
+          "lcp_detected_from_input": false,
+          "frame_value": 1
+        }
+      },
+      "cae_reopened": true,
+      "cae_physical_audit": {
+        "passed": true,
+        "errors": [],
+        "instances": [
+          "BOTTOM",
+          "TOP"
+        ],
+        "nodes": {
+          "TOP": 2945,
+          "BOTTOM": 2945
+        },
+        "boundary_dofs": 48,
+        "load_dofs": 18
+      },
+      "clean_replay_completed": true,
+      "clean_replay_validation": {
+        "passed": true,
+        "structure": {
+          "passed": true,
+          "errors": [],
+          "instances": [
+            "BOTTOM",
+            "TOP"
+          ],
+          "nodes": {
+            "TOP": 2945,
+            "BOTTOM": 2945
+          },
+          "boundary_dofs": 48,
+          "load_dofs": 18
+        },
+        "extraction": {
+          "passed": true,
+          "errors": []
+        },
+        "physics": {
+          "passed": true,
+          "errors": [],
+          "comparisons": [
+            {
+              "point": "P1",
+              "strain": 0.00012337809312157333,
+              "reference": 0.0001233779184985906,
+              "absolute_error": 1.7462298274040222e-10,
+              "tolerance": 0.00000616889592492953,
+              "passed": true
+            },
+            {
+              "point": "P2",
+              "strain": -0.00039813522016629577,
+              "reference": -0.0003981346671935171,
+              "absolute_error": 5.529727786779404e-10,
+              "tolerance": 0.000019906733359675855,
+              "passed": true
+            },
+            {
+              "point": "P3",
+              "strain": -0.00021430631750263274,
+              "reference": -0.000214306048292201,
+              "absolute_error": 2.6921043172478676e-10,
+              "tolerance": 0.000010715302414610052,
+              "passed": true
+            },
+            {
+              "point": "P4",
+              "strain": 8.834967957227491e-8,
+              "reference": 8.835286280373111e-8,
+              "absolute_error": 3.183231456205249e-12,
+              "tolerance": 0.000002,
+              "passed": true
+            },
+            {
+              "point": "P5",
+              "strain": 0.00021420347184175625,
+              "reference": 0.0002142031808034517,
+              "absolute_error": 2.9103830456733704e-10,
+              "tolerance": 0.000010710159040172585,
+              "passed": true
+            },
+            {
+              "point": "P6",
+              "strain": -0.00021512002058443613,
+              "reference": -0.00021511970408027992,
+              "absolute_error": 3.1650415621697903e-10,
+              "tolerance": 0.000010755985204013997,
+              "passed": true
+            },
+            {
+              "point": "P7",
+              "strain": -3.169589035678655e-10,
+              "reference": -3.1809577194508165e-10,
+              "absolute_error": 1.1368683772161603e-12,
+              "tolerance": 0.000002,
+              "passed": true
+            },
+            {
+              "point": "P8",
+              "strain": 0.00021512037346838042,
+              "reference": 0.0002151201006199699,
+              "absolute_error": 2.7284841053187847e-10,
+              "tolerance": 0.000010756005030998496,
+              "passed": true
+            },
+            {
+              "point": "P9",
+              "strain": 0.0003995098522864282,
+              "reference": 0.0003995093720732257,
+              "absolute_error": 4.802132025361061e-10,
+              "tolerance": 0.000019975468603661284,
+              "passed": true
+            },
+            {
+              "point": "P10",
+              "strain": -0.0001038730661093723,
+              "reference": -0.00010387293878011405,
+              "absolute_error": 1.2732925824820995e-10,
+              "tolerance": 0.000005193646939005703,
+              "passed": true
+            }
+          ]
+        },
+        "completion_frame": {
+          "passed": true,
+          "lcp_detected_from_input": false,
+          "frame_value": 1
+        }
+      },
+      "human_contributions": [
+        "Teacher defined the interface variant and rejected a suggestion outside the requested scope.",
+        "Teacher supplied an API card after the actual contact-property attribute error.",
+        "Developer added upper-layer locating constraints missing from the model suggestion."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+
+# Preserve exact bytes of validated reference sources and exported CSV fixtures.
+assets/composite-beam/build_*.py -text whitespace=cr-at-eol
+tests/fixtures/*.csv -text whitespace=cr-at-eol
+
+# Solver-export fixtures retain their original final blank record.
+tests/fixtures/*.inp whitespace=-blank-at-eof

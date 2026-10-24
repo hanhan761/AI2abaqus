@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI2abaqus"
+  short_description: "以任务契约、审查执行和独立核验组织AI辅助Abaqus仿真与教学评测"
+  default_prompt: "使用 $ai2abaqus，将我的力学任务转成有真实运行与独立核验证据的Abaqus仿真，并记录AI建议和审查修正。"
