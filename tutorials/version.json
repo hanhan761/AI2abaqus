@@ -1,0 +1,16 @@
+{
+  "tutorial_version": "1.0",
+  "date": "2026-10-25",
+  "skill_version": "0.1.0",
+  "audience": "undergraduates_with_mechanics_of_materials_and_new_to_Abaqus",
+  "entry": "teacher_preconfigured_skill_capable_assistant",
+  "lesson_periods": 4,
+  "minutes_per_period": 45,
+  "classroom_validated": false,
+  "new_research_model_requests": 0,
+  "new_solver_submissions": 0,
+  "validation_source": "../evidence/validation.json",
+  "license_status_as_recorded_on": "2026-10-24",
+  "packaged_full_replay_passed": false,
+  "note": "Documentation release. Skill scripts, case profile and tested evidence are unchanged."
+}
